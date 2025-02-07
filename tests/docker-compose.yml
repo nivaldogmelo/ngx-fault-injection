@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  nginx:
+    image: ngx-rust:1.26.2
+    ports:
+      - 8080:8080
+      - 15501:15501
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf

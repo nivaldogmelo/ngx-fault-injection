@@ -1,0 +1,2 @@
+[env]
+CACHE_DIR = { value = ".cache", relative = true }

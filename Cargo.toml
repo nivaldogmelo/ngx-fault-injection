@@ -1,0 +1,25 @@
+[package]
+name = "ngx-fault-injection"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+ngx = { git = "https://github.com/nginx/ngx-rust", branch="master", default-features = false, features = ["std"] }
+nginx-sys = { git = "https://github.com/nginx/ngx-rust", branch="master", package = "nginx-sys", default-features = false }
+ipnetwork = "0.21.1"
+tokio = "1.43.0"
+libc = "0.2.169"
+# nginx-sys = { path = "../nginx-sys/", default-features = false }
+
+[features]
+default = ["export-modules", "ngx/vendored"]
+# Generate `ngx_modules` table with module exports
+# The exports table is required for building loadable modules with --crate-type cdylib
+# outside of the NGINX buildsystem. However, cargo currently does not detect
+# this configuration automatically.
+# See https://github.com/rust-lang/rust/issues/20267
+export-modules = []
+linux = []
