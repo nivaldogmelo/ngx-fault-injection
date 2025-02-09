@@ -30,7 +30,7 @@ Status
 Known-bug
 ---------
 
-Currently this module is using rust `thread::sleep** to wait before sending response. This blocks
+Currently this module is using rust `thread::sleep` to wait before sending response. This blocks
 nginx worker, making it really slow for multiple requests. The ideal solution is to use the nginx
 events api to ensure that it can handle other requests while waiting for this to complete.
 
@@ -94,7 +94,7 @@ fault_injection
 ---------------
 **syntax:** *fault_injection on | off;*\
 **default:** *fault_injection off;*\
-**context:** *location*\
+**context:** *location*
 
 Enables or disables fault_injection within the the location.
 
@@ -102,10 +102,10 @@ fault_delay
 -----------
 **syntax:** *fault_delay \<time\>;*\
 **default:** *fault_delay 0s;*\
-**context:** *location*\
+**context:** *location*
 
 Sets a timer which the server is gonna wait before send the response. The time can be set with the
-`s` or `ms** suffixes.
+`s` or `ms` suffixes.
 
 **Example:**
 
@@ -118,7 +118,7 @@ fault_status
 ------------
 **syntax:** *fault_status \<code\>;*\
 **default:** *--*\
-**context:** *location*\
+**context:** *location*
 
 Sets the status code to be sent after the delay time has been finished.
 
@@ -126,7 +126,7 @@ fault_ip
 --------
 **syntax:** *fault_ip \<CIDR\>;*\
 **default:** *fault_ip 0.0.0.0/0*\
-**context:** *location*\
+**context:** *location*
 
 Defines addresses that are allowed to use the fault injection configurations.
 
